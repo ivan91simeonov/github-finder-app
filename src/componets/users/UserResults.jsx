@@ -1,39 +1,27 @@
 import { useEffect, useState } from 'react';
 
 function UserResults() {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
+    useEffect(()=> {
+        fetchData()
+    }, [])
 
-  const fetchUsers = async () => {
-    const res = await fetch(`${process.env.REACT_APP_GITHUB_URL}/users`, {
-      headers: {
-        Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
-      },
-    });
+    const fetchData = async() => {
+        const response = await fetch(`${process.env.REACT_APP_GITHUB_URL}/users` , {
+            headers:{
+                Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`
+            }
+        })
 
-    const data = await res.json();
+        const data = await response.json()
 
-    setUsers(data);
-    setLoading(false);
-  };
-
-  if(!loading) {
-      return (
+        console.log(data)
+    }
+  return (
       <div>
-         {users.map(user=> (
-             <h3>{user.login}</h3>
-         ))}
+          
       </div>
-      );
-
-  }else{
-    return <h3>Loading</h3>
-  }
-
+  )
 }
 
 export default UserResults;
