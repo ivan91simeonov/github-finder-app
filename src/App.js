@@ -4,10 +4,12 @@ import About from './pages/About';
 import NotFound from './pages/NotFound';
 import Navbar from './componets/layout/Navbar';
 import Footer from './componets/layout/Footer';
+import {GithubProvider} from './context/github/GithubContext'
 
 
 function App() {
   return (
+    <GithubProvider>
     <Router>
       <div>
         <Navbar />
@@ -22,6 +24,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </GithubProvider>
   )
 }
 
