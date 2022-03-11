@@ -1,22 +1,17 @@
-import { useEffect, useContext } from 'react';
-import './UserResults.css'
+import {  useContext } from 'react';
+import './UserResults.css';
 import Spinner from '../layout/Spinner';
 import UserItem from './UserItem';
 import GithubContext from '../../context/github/GithubContext';
 
-
 function UserResults() {
-    const {users , loading , fetchData} = useContext(GithubContext)
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { users, loading,  } = useContext(GithubContext);
 
 
 
   if (!loading) {
     return (
-      <div className='user-items'>
+      <div className="user-items">
         {users.map((user) => (
           <UserItem key={user.id} user={user} />
         ))}
