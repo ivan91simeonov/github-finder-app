@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import './UserItem.css'
 
 function UserItem({ user: { login, avatar_url } }) {
   return (
-    <div>
+    <div className='items'>
       <div>
         <div>
           <div></div>

@@ -1,11 +1,11 @@
-import spinner from './assets/spinner.gif'
+import spinner from './assets/spinner.gif';
 
-function Spinner () {
-    return (
-        <div>
-            <img width={180} src={spinner} alt="Loading..." />
-        </div>
-    )
+function Spinner() {
+  return (
+    <div>
+      <img width={180} src={spinner} alt="Loading..." />
+    </div>
+  );
 }
 
-export default Spinner
+export default Spinner;
