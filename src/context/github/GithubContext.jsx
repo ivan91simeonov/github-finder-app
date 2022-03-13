@@ -17,12 +17,12 @@ export const GithubProvider = ({ children }) => {
     setLoading();
 
     const params = new URLSearchParams({
-      q: text
-    })
+      q: text,
+    });
 
     const response = await fetch(GITHUB_URL + `search/users?${params}`);
 
-    const {items} = await response.json();
+    const { items } = await response.json();
 
     dispatch({
       type: 'GET_USERS',
@@ -35,12 +35,18 @@ export const GithubProvider = ({ children }) => {
       type: 'SET_LOADING',
     });
 
+    const clearUsers = () => {
+      dispatch({
+        type:'CLEAR_USERS'
+      })
+    }
   return (
     <GithubContext.Provider
       value={{
         users: state.users,
         loading: state.loading,
         searchUsers,
+        clearUsers
       }}
     >
       {children}
