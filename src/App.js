@@ -5,8 +5,10 @@ import About from './pages/About';
 import NotFound from './pages/NotFound';
 import Navbar from './componets/layout/Navbar';
 import Footer from './componets/layout/Footer';
+import Alert from './componets/layout/Alert';
 import {GithubProvider} from './context/github/GithubContext'
-import {AlertProvider} from './context/alert/ALertContext'
+// import {AlertProvider} from './context/alert/AlertContext'
+import { AlertProvider } from './context/alert/AlertContext';
 
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
       <div>
         <Navbar />
           <main>
+            <Alert /> 
             <Routes>
               <Route path='/' element={<Home />}/>
               <Route path='/about' element={<About />}/>
