@@ -6,11 +6,13 @@ import NotFound from './pages/NotFound';
 import Navbar from './componets/layout/Navbar';
 import Footer from './componets/layout/Footer';
 import {GithubProvider} from './context/github/GithubContext'
+import {AlertProvider} from './context/alert/ALertContext'
 
 
 function App() {
   return (
     <GithubProvider>
+      <AlertProvider>
     <Router>
       <div>
         <Navbar />
@@ -25,6 +27,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </AlertProvider>
     </GithubProvider>
   )
 }

@@ -1,3 +1,16 @@
 .items {
     display: flex;
 }
+
+.img {
+    width: 100px;
+    height: auto;
+    margin-top: 20px;
+  /* margin-bottom: 40px; */
+    float: left;
+}
+
+.name{
+  font-style: italic;
+    
+}
