@@ -1,4 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .alert {
-    color: red;
-    border-color: black;
+    font-family: sans-serif;
+    color: rgba(182, 12, 12, 0.767);
+    font-size: 22px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  /* position: absolute; */
+
 }

@@ -14,8 +14,8 @@ function Navbar({ title }) {
 
         <div>
           <div className="main-nav">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
+            <Link className='nav_menu' to="/">Home</Link>
+            <Link className='nav_menu' to="/about">About</Link>
           </div>
         </div>
       </div>
