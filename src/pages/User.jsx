@@ -1,17 +1,19 @@
 import { FaCodepen, FaStore, FaUserFriends, FaUsers } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Spinner from '../componets/layout/Spinner';
+import RepoList from '../componets/repos/RepoList';
 import { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import GithubContext from '../context/github/GithubContext';
 
 function User() {
-  const { getUser, user, loading } = useContext(GithubContext);
+  const { getUser, user, loading , getUserRepos , repos } = useContext(GithubContext);
 
   const params = useParams();
 
   useEffect(() => {
     getUser(params.login);
+    getUserRepos(params.login);
   }, []);
 
   const {
@@ -56,7 +58,7 @@ function User() {
               </div>
             </div>
           </div>
-          <dir className="span">
+          <div className="span">
             <div>
               <h1>
                 {name}
@@ -100,9 +102,9 @@ function User() {
                 </div>
               )}
             </div>
-          </dir>
+          </div>
         </div>
-        <dir>
+        <div>
           <div>
             <div>
               <FaUsers />
@@ -132,7 +134,6 @@ function User() {
             </div>
           </div>
 
-          
           <div>
             <div>
               <FaStore />
@@ -142,8 +143,8 @@ function User() {
               <div>{public_gists}</div>
             </div>
           </div>
-          
-        </dir>
+        </div>
+        <RepoList repos={repos}/> 
       </div>
     </>
   );
