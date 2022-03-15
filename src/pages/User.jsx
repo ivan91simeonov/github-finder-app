@@ -65,13 +65,85 @@ function User() {
               </h1>
               <p>{bio}</p>
               <div>
-                  <a href={html_url} target='_blank' rel='noreferrer'>
-                    Visit Github Profile      
+                <a href={html_url} target="_blank" rel="noreferrer">
+                  Visit Github Profile
                 </a>
               </div>
             </div>
+            <div>
+              {location && (
+                <div>
+                  <div>Location</div>
+                  <div>{location}</div>
+                </div>
+              )}
+
+              {blog && (
+                <div>
+                  <div>Website</div>
+                  <a href={`https://${blog}`} target="_blank" rel="noreferrer">
+                    {blog}
+                  </a>
+                </div>
+              )}
+
+              {twitter_username && (
+                <div>
+                  <div>Twitter</div>
+                  <a
+                    href={`https://twitter.com/${twitter_username}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {twitter_username}
+                  </a>
+                </div>
+              )}
+            </div>
           </dir>
         </div>
+        <dir>
+          <div>
+            <div>
+              <FaUsers />
+            </div>
+            <div>
+              Followers
+              <div>{followers}</div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <FaUserFriends />
+            </div>
+            <div>
+              Following
+              <div>{following}</div>
+            </div>
+          </div>
+
+          <div>
+            <div>
+              <FaCodepen />
+            </div>
+            <div>
+              Public Repos
+              <div>{public_repos}</div>
+            </div>
+          </div>
+
+          
+          <div>
+            <div>
+              <FaStore />
+            </div>
+            <div>
+              Public Gists
+              <div>{public_gists}</div>
+            </div>
+          </div>
+          
+        </dir>
       </div>
     </>
   );
