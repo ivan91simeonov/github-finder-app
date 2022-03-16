@@ -4,7 +4,7 @@ import githubReducer from './GithubReducer';
 
 const GithubContext = createContext();
 
-const GITHUB_URL = 'https://api.github.com/';
+// const GITHUB_URL = 'https://api.github.com/';
 
 export const GithubProvider = ({ children }) => {
   const initialState = {
@@ -33,51 +33,51 @@ export const GithubProvider = ({ children }) => {
   //   });
   // };
 
-  const getUser = async (login) => {
-    setLoading();
+  // const getUser = async (login) => {
+  //   setLoading();
 
-    const response = await fetch(GITHUB_URL + `users/${login}`);
+  //   const response = await fetch(GITHUB_URL + `users/${login}`);
 
-    if (response.status === 404) {
-      window.location = '/notfound';
-    } else {
-      const data = await response.json();
+  //   if (response.status === 404) {
+  //     window.location = '/notfound';
+  //   } else {
+  //     const data = await response.json();
 
-      dispatch({
-        type: 'GET_USER',
-        payload: data
-      });
-    }
-  };
+  //     dispatch({
+  //       type: 'GET_USER',
+  //       payload: data
+  //     });
+  //   }
+  // };
 
-  const getUserRepos = async (login) => {
-    setLoading();
+  // const getUserRepos = async (login) => {
+  //   setLoading();
 
-    const params = new URLSearchParams({
-      sort: 'created',
-      per_page: 10
-    });
+  //   const params = new URLSearchParams({
+  //     sort: 'created',
+  //     per_page: 10
+  //   });
 
-    const response = await fetch(GITHUB_URL + `users/${login}/repos?${params}`);
+  //   const response = await fetch(GITHUB_URL + `users/${login}/repos?${params}`);
 
-    const data = await response.json();
+  //   const data = await response.json();
 
-    dispatch({
-      type: 'GET_REPOS',
-      payload: data
-    });
-  };
+  //   dispatch({
+  //     type: 'GET_REPOS',
+  //     payload: data
+  //   });
+  // };
 
-  const setLoading = () =>
-    dispatch({
-      type: 'SET_LOADING'
-    });
+  // const setLoading = () =>
+  //   dispatch({
+  //     type: 'SET_LOADING'
+  //   });
 
-  const clearUsers = () => {
-    dispatch({
-      type: 'CLEAR_USERS'
-    });
-  };
+  // const clearUsers = () => {
+  //   dispatch({
+  //     type: 'CLEAR_USERS'
+  //   });
+  // };
   return (
     <GithubContext.Provider
       value={{
@@ -88,9 +88,9 @@ export const GithubProvider = ({ children }) => {
         // user: state.user,
         // repos: state.repos,
         // searchUsers,
-        clearUsers,
-        getUser,
-        getUserRepos
+        // clearUsers,
+        // getUser,
+        // getUserRepos
       }}
     >
       {children}
