@@ -16,7 +16,7 @@ function App() {
     <GithubProvider>
       <AlertProvider>
     <Router>
-      <div>
+      <div className='container'>
         <Navbar />
           <main>
             <Alert /> 

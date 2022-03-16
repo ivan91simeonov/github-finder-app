@@ -6,19 +6,17 @@ import './Navbar.css';
 function Navbar({ title }) {
   return (
     <nav className="navbar">
-      <div className="container">
-        <div>
+        <div className='icons-link'>
           <FaGithub />
-          <Link to="/">{title}</Link>
+          <Link className='link' to="/">{title}</Link>
         </div>
 
         <div>
           <div className="main-nav">
-            <Link className='nav_menu' to="/">Home</Link>
-            <Link className='nav_menu' to="/about">About</Link>
+            <Link className='nav-menu' to="/">Home</Link>
+            <Link className='nav-menu' to="/about">About</Link>
           </div>
         </div>
-      </div>
     </nav>
   );
 }
