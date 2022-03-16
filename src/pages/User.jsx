@@ -5,7 +5,7 @@ import RepoList from '../componets/repos/RepoList';
 import { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import GithubContext from '../context/github/GithubContext';
-import { getUser, getUserRepos } from '../context/github/GithubActions';
+import {  getUserAndRepos } from '../context/github/GithubActions';
 
 function User() {
   const { user, loading, repos, dispatch } = useContext(GithubContext);
@@ -18,17 +18,17 @@ function User() {
     dispatch({ type: 'SET_LOADING' });
 
     const getUserData = async () => {
-      const userData = await getUser(params.login);
+      const userData = await getUserAndRepos(params.login);
 
-      dispatch({ type: 'GET_USER', payload: userData });
+      dispatch({ type: 'GET_USER_AND_REPOS', payload: userData });
 
-      const userRepoData = await getUserRepos(params.login);
+      // const userRepoData = await getUserRepos(params.login);
 
-      dispatch({ type: 'GET_REPOS', payload: userRepoData });
+      // dispatch({ type: 'GET_REPOS', payload: userRepoData });
     };
 
     getUserData();
-  }, [dispatch , params.login]);
+  }, [dispatch, params.login]);
 
   const {
     name,
